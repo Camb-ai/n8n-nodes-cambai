@@ -1,0 +1,54 @@
+{
+  "name": "n8n-nodes-cambai",
+  "version": "0.1.0",
+  "description": "n8n community node for Camb.ai Text-to-Speech API",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "tts",
+    "text-to-speech",
+    "cambai",
+    "camb.ai",
+    "audio",
+    "voice",
+    "speech synthesis"
+  ],
+  "license": "MIT",
+  "homepage": "https://camb.ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/camb-ai/n8n-nodes-cambai.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/CambAiApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/CambAi/CambAi.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "eslint": "^8.57.0",
+    "gulp": "^4.0.2",
+    "n8n-workflow": "*",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
