@@ -1,0 +1,22 @@
+# Build output
+dist/
+
+# Dependencies
+node_modules/
+
+# Lock files (using pnpm)
+pnpm-lock.yaml
+package-lock.json
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug
+npm-debug.log*

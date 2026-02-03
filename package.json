@@ -19,12 +19,17 @@
     "type": "git",
     "url": "https://github.com/camb-ai/n8n-nodes-cambai.git"
   },
-  "main": "index.js",
+  "main": "dist/index.js",
+  "author": {
+    "name": "Camb.ai",
+    "email": "support@camb.ai"
+  },
   "scripts": {
-    "build": "tsc && gulp build:icons",
+    "build": "tsc && npm run copy:icons",
+    "copy:icons": "cp nodes/CambAi/cambai.svg dist/nodes/CambAi/",
     "dev": "tsc --watch",
     "format": "prettier nodes credentials --write",
-    "lint": "eslint nodes credentials package.json",
+    "lint": "eslint nodes/**/*.ts credentials/**/*.ts",
     "lintfix": "eslint nodes credentials package.json --fix",
     "prepublishOnly": "npm run build"
   },
@@ -42,13 +47,17 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
     "eslint": "^8.57.0",
-    "gulp": "^4.0.2",
     "n8n-workflow": "*",
     "prettier": "^3.2.5",
     "typescript": "^5.4.0"
   },
   "peerDependencies": {
     "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "form-data": "^4.0.5"
   }
 }
