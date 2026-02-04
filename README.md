@@ -1,4 +1,4 @@
-# n8n-nodes-cambai
+# @camb-ai/n8n-nodes-cambai
 
 This is an n8n community node for [Camb.ai](https://camb.ai) - an AI-powered audio platform providing text-to-speech, voice cloning, transcription, translation, and more.
 
