@@ -10,6 +10,8 @@ export class CambAiApi implements ICredentialType {
 
 	displayName = 'Camb.ai API';
 
+	icon = 'file:cambai.svg' as const;
+
 	documentationUrl = 'https://docs.camb.ai';
 
 	properties: INodeProperties[] = [

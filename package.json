@@ -25,12 +25,12 @@
     "email": "support@camb.ai"
   },
   "scripts": {
-    "build": "tsc && npm run copy:icons",
-    "copy:icons": "cp nodes/CambAi/cambai.svg dist/nodes/CambAi/",
-    "dev": "tsc --watch",
+    "build": "n8n-node build",
+    "dev": "n8n-node dev",
     "format": "prettier nodes credentials --write",
-    "lint": "eslint nodes/**/*.ts credentials/**/*.ts",
-    "lintfix": "eslint nodes credentials package.json --fix",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "release": "n8n-node release",
     "prepublishOnly": "npm run build"
   },
   "files": [
@@ -46,10 +46,9 @@
     ]
   },
   "devDependencies": {
+    "@n8n/node-cli": "^0.19.0",
     "@types/node": "^20.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.54.0",
-    "@typescript-eslint/parser": "^8.54.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.39.2",
     "n8n-workflow": "*",
     "prettier": "^3.2.5",
     "typescript": "^5.4.0"

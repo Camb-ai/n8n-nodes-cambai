@@ -157,7 +157,7 @@ export class CambAi implements INodeType {
 						action: 'Clone voice from audio',
 					},
 					{
-						name: 'Create from Description',
+						name: 'Create From Description',
 						value: 'createVoice',
 						description: 'Create a voice from text description',
 						action: 'Create voice from description',
@@ -279,7 +279,7 @@ export class CambAi implements INodeType {
 						description: 'AAC streaming format',
 					},
 					{
-						name: 'PCM 16-bit',
+						name: 'PCM 16-Bit',
 						value: 'pcm_s16le',
 						description: 'Raw PCM 16-bit little-endian',
 					},
@@ -443,7 +443,7 @@ export class CambAi implements INodeType {
 				description: 'Type of audio to generate',
 			},
 			{
-				displayName: 'Duration (seconds)',
+				displayName: 'Duration (Seconds)',
 				name: 'duration',
 				type: 'number',
 				typeOptions: {
@@ -528,7 +528,7 @@ export class CambAi implements INodeType {
 						operation: ['translate'],
 					},
 				},
-				description: 'Text to translate. Use JSON array for multiple texts: ["text1", "text2"]',
+				description: 'Text to translate. Use JSON array for multiple texts: ["text1", "text2"].',
 			},
 			{
 				displayName: 'Source Language ID',
