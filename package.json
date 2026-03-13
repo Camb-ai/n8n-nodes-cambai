@@ -1,6 +1,6 @@
 {
   "name": "@camb-ai/n8n-nodes-cambai",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "n8n community node for Camb.ai Text-to-Speech API",
   "keywords": [
     "n8n-community-node-package",
@@ -22,7 +22,7 @@
   "main": "dist/index.js",
   "author": {
     "name": "Camb.ai",
-    "email": "support@camb.ai"
+    "email": "neil.ruaro@camb.ai"
   },
   "scripts": {
     "build": "n8n-node build",
@@ -55,8 +55,5 @@
   },
   "peerDependencies": {
     "n8n-workflow": "*"
-  },
-  "dependencies": {
-    "form-data": "^4.0.5"
   }
 }

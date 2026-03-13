@@ -1,4 +1,3 @@
-import FormData from 'form-data';
 import type {
 	IExecuteFunctions,
 	IDataObject,
@@ -6,11 +5,9 @@ import type {
 	IHttpRequestOptions,
 	JsonObject,
 } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import { NodeApiError, sleep } from 'n8n-workflow';
 
 const BASE_URL = 'https://client.camb.ai/apis';
-
-export { FormData };
 
 export async function cambAiApiRequest(
 	this: IExecuteFunctions,
@@ -131,12 +128,12 @@ export async function pollForResult(
 			}
 
 			// PENDING or any other status - keep polling
-			await new Promise((resolve) => setTimeout(resolve, interval));
+			await sleep(interval);
 		} catch (error) {
 			// If it's a 404, the task might not be ready yet - keep polling
 			const err = error as { statusCode?: number; message?: string };
 			if (err.statusCode === 404) {
-				await new Promise((resolve) => setTimeout(resolve, interval));
+				await sleep(interval);
 				continue;
 			}
 			// Any other error is a real error - stop polling

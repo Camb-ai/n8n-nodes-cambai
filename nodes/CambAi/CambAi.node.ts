@@ -7,7 +7,7 @@ import type {
 } from 'n8n-workflow';
 import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
 
-import { cambAiApiRequest, pollForResult, generateWavHeader, FormData } from './GenericFunctions';
+import { cambAiApiRequest, pollForResult, generateWavHeader } from './GenericFunctions';
 
 // Sample rates per model
 const MODEL_SAMPLE_RATES: Record<string, number> = {
@@ -958,10 +958,8 @@ export class CambAi implements INodeType {
 					const buffer = await this.helpers.getBinaryDataBuffer(i, inputBinaryField);
 
 					const formData = new FormData();
-					formData.append('media_file', buffer, {
-						filename: binaryData.fileName || 'audio.wav',
-						contentType: binaryData.mimeType,
-					});
+					const blob = new Blob([buffer], { type: binaryData.mimeType });
+					formData.append('media_file', blob, binaryData.fileName || 'audio.wav');
 
 					const response = await cambAiApiRequest.call(this, 'POST', '/audio-separation', {}, {}, {
 						formData,
@@ -1048,10 +1046,8 @@ export class CambAi implements INodeType {
 					const buffer = await this.helpers.getBinaryDataBuffer(i, inputBinaryField);
 
 					const formData = new FormData();
-					formData.append('media_file', buffer, {
-						filename: binaryData.fileName || 'audio.wav',
-						contentType: binaryData.mimeType,
-					});
+					const blob = new Blob([buffer], { type: binaryData.mimeType });
+					formData.append('media_file', blob, binaryData.fileName || 'audio.wav');
 					formData.append('language', String(languageId));
 
 					const response = await cambAiApiRequest.call(this, 'POST', '/transcribe', {}, {}, {
@@ -1264,10 +1260,8 @@ export class CambAi implements INodeType {
 					const buffer = await this.helpers.getBinaryDataBuffer(i, inputBinaryField);
 
 					const formData = new FormData();
-					formData.append('file', buffer, {
-						filename: binaryData.fileName || 'voice_sample.wav',
-						contentType: binaryData.mimeType,
-					});
+					const blob = new Blob([buffer], { type: binaryData.mimeType });
+					formData.append('file', blob, binaryData.fileName || 'voice_sample.wav');
 					formData.append('voice_name', voiceName);
 					formData.append('gender', String(gender));
 					formData.append('age', String(age));
